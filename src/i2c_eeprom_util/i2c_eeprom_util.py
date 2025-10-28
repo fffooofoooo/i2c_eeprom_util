@@ -8,6 +8,23 @@ import sys
 import argparse
 import time
 import logging
+from importlib.metadata import PackageNotFoundError, version
+
+
+DIST_NAME = "i2c_eeprom_util"
+
+
+def get_version() -> str:
+    try:
+        return version(DIST_NAME)
+    except PackageNotFoundError:
+        # Fallback for dev runs before install: read pyproject.toml
+        import tomllib  # Python 3.11+
+        import pathlib
+
+        pyproject = pathlib.Path(__file__).parents[2] / "pyproject.toml"
+        data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
+        return data["project"]["version"]
 
 
 def zl_eeprom_image_parse(file_name: str) -> bytearray:
@@ -260,6 +277,9 @@ def eeprom_i2c_config(eeprom: I2cPort, device: str):
 
 def main() -> str:
     parser = argparse.ArgumentParser("I2C EEPROM Util")
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {get_version()}"
+    )
     parser.add_argument(
         "device",
         help="Which i2c device protocol to use",

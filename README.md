@@ -21,8 +21,14 @@ Supported Devices:
 
 ```bash
 # Clone the repo
-git clone https://github.com/YourUser/YourRepo.git
-cd YourRepo
+git clone https://github.com/you/my-tool.git
+cd my-tool
+# build distribution artifacts
+uv build
+# install the wheel (preferred over sdist)
+pip install dist/i2c_eeprom_util-<version>-py3-none-any.whl
+# or install editable for development
+pip install -e .
 ```
 
 ---

@@ -3,9 +3,9 @@ revision = 3
 requires-python = ">=3.13"
 
 [[package]]
-name = "ft2232-i2c"
+name = "i2c-eeprom-util"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "pyftdi" },
     { name = "pyserial" },

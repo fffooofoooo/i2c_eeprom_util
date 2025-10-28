@@ -1,5 +1,5 @@
 [project]
-name = "ft2232-i2c"
+name = "i2c_eeprom_util"
 version = "0.1.0"
 description = "Script for flashing EEPROMs from an ft2232 over i2c"
 readme = "README.md"
@@ -11,3 +11,10 @@ dependencies = [
     "ruamel-yaml==0.18.16",
     "ruamel-yaml-clib==0.2.14",
 ]
+
+[project.scripts]
+i2c_eeprom_util = "i2c_eeprom_util.i2c_eeprom_util:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
