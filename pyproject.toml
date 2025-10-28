@@ -1,0 +1,13 @@
+[project]
+name = "ft2232-i2c"
+version = "0.1.0"
+description = "Script for flashing EEPROMs from an ft2232 over i2c"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pyftdi==0.57.1",
+    "pyserial==3.5",
+    "pyusb==1.3.1",
+    "ruamel-yaml==0.18.16",
+    "ruamel-yaml-clib==0.2.14",
+]
